@@ -1,0 +1,72 @@
+ Container tradeflow-backend-run-9393cda3a0d2 Creating 
+ Container tradeflow-backend-run-9393cda3a0d2 Created 
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-8.3.4, pluggy-1.7.0 -- /usr/local/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /app
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 59 items
+
+tests/test_assistant_analytics.py::test_assistant_cheapest_english PASSED [  1%]
+tests/test_assistant_analytics.py::test_assistant_region_comparison_russian PASSED [  3%]
+tests/test_assistant_analytics.py::test_assistant_uzbek_suppliers_in_region PASSED [  5%]
+tests/test_assistant_analytics.py::test_assistant_min_quantity PASSED    [  6%]
+tests/test_assistant_analytics.py::test_assistant_does_not_invent PASSED [  8%]
+tests/test_assistant_analytics.py::test_price_history_and_movers PASSED  [ 10%]
+tests/test_assistant_analytics.py::test_supply_demand_keeps_signals_separate PASSED [ 11%]
+tests/test_assistant_analytics.py::test_overview_and_regions PASSED      [ 13%]
+tests/test_assistant_analytics.py::test_demo_seed_labelled_and_purgeable PASSED [ 15%]
+tests/test_assistant_analytics.py::test_anomaly_detection PASSED         [ 16%]
+tests/test_assistant_analytics.py::test_demo_accounts_can_log_in PASSED  [ 18%]
+tests/test_auth.py::test_register_buyer_and_me PASSED                    [ 20%]
+tests/test_auth.py::test_register_supplier_creates_unverified_supplier PASSED [ 22%]
+tests/test_auth.py::test_supplier_registration_requires_region PASSED    [ 23%]
+tests/test_auth.py::test_cannot_self_register_admin PASSED               [ 25%]
+tests/test_auth.py::test_weak_password_rejected PASSED                   [ 27%]
+tests/test_auth.py::test_duplicate_email PASSED                          [ 28%]
+tests/test_auth.py::test_login_wrong_password PASSED                     [ 30%]
+tests/test_auth.py::test_refresh_and_logout_revokes PASSED               [ 32%]
+tests/test_auth.py::test_access_token_cannot_be_used_as_refresh PASSED   [ 33%]
+tests/test_auth.py::test_invalid_token PASSED                            [ 35%]
+tests/test_auth.py::test_disabled_user_cannot_login PASSED               [ 37%]
+tests/test_auth.py::test_bootstrap_admin_default_email_is_valid PASSED   [ 38%]
+tests/test_authorization.py::test_buyer_cannot_manage_catalog PASSED     [ 40%]
+tests/test_authorization.py::test_anonymous_cannot_write PASSED          [ 42%]
+tests/test_authorization.py::test_supplier_cannot_edit_other_suppliers_offer PASSED [ 44%]
+tests/test_authorization.py::test_supplier_cannot_self_verify PASSED     [ 45%]
+tests/test_authorization.py::test_admin_verifies_supplier_and_audit_logged PASSED [ 47%]
+tests/test_authorization.py::test_quote_isolation_between_organizations PASSED [ 49%]
+tests/test_authorization.py::test_role_change_requires_users_manage PASSED [ 50%]
+tests/test_authorization.py::test_rating_requires_org_and_updates_average PASSED [ 52%]
+tests/test_catalog.py::test_all_major_categories_seeded PASSED           [ 54%]
+tests/test_catalog.py::test_regions_cover_uzbekistan PASSED              [ 55%]
+tests/test_catalog.py::test_admin_creates_category_with_dynamic_attributes_and_product PASSED [ 57%]
+tests/test_catalog.py::test_attribute_from_other_category_rejected PASSED [ 59%]
+tests/test_catalog.py::test_search_multilingual_and_logs_search_event PASSED [ 61%]
+tests/test_catalog.py::test_supplier_can_create_product_but_not_edit_catalog PASSED [ 62%]
+tests/test_catalog.py::test_archived_product_hidden PASSED               [ 64%]
+tests/test_market_data.py::test_csv_import_pipeline PASSED               [ 66%]
+tests/test_market_data.py::test_xlsx_import_offers PASSED                [ 67%]
+tests/test_market_data.py::test_import_rejects_bad_files PASSED          [ 69%]
+tests/test_market_data.py::test_http_connector_blocked_until_terms_permitted PASSED [ 71%]
+tests/test_market_data.py::test_http_connector_with_permitted_source PASSED [ 72%]
+tests/test_market_data.py::test_manual_observation_and_verification PASSED [ 74%]
+tests/test_offers_comparison.py::test_offer_normalization_and_history PASSED [ 76%]
+tests/test_offers_comparison.py::test_incompatible_offer_unit_rejected PASSED [ 77%]
+tests/test_offers_comparison.py::test_foreign_currency_requires_recorded_rate PASSED [ 79%]
+tests/test_offers_comparison.py::test_cheapest_vs_best_overall PASSED    [ 81%]
+tests/test_offers_comparison.py::test_moq_applied_to_total PASSED        [ 83%]
+tests/test_offers_comparison.py::test_unknown_delivery_cost_is_flagged_not_invented PASSED [ 84%]
+tests/test_offers_comparison.py::test_regional_filter_and_regional_prices PASSED [ 86%]
+tests/test_offers_comparison.py::test_expired_offer_excluded PASSED      [ 88%]
+tests/test_offers_comparison.py::test_offer_validation PASSED            [ 89%]
+tests/test_units_matching.py::test_dimension_conversions PASSED          [ 91%]
+tests/test_units_matching.py::test_incompatible_units_rejected PASSED    [ 93%]
+tests/test_units_matching.py::test_product_specific_conversion_and_chaining PASSED [ 94%]
+tests/test_units_matching.py::test_resolve_unit_aliases PASSED           [ 96%]
+tests/test_units_matching.py::test_normalize_text PASSED                 [ 98%]
+tests/test_units_matching.py::test_matching_barcode_exact_and_fuzzy PASSED [100%]
+
+============================= 59 passed in 52.50s ==============================

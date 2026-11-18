@@ -1,0 +1,4 @@
+product_name,price,currency,unit,region,price_type,supplier,observed_at,source_url,moq,available_qty,category,barcode
+Portland cement M400 50kg,74000,UZS,qop,Toshkent shahri,wholesale,Example Supplier LLC,2026-11-10,,10,500,construction,
+Granulated sugar 50kg,640000,UZS,мешок,Самарканд,wholesale,Example Supplier LLC,2026-11-10,,5,120,food,
+Sunflower oil refined 5L,108000,UZS,dona,Andijon,retail,Example Supplier LLC,2026-11-11,,1,300,food,

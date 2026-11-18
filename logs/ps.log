@@ -1,0 +1,5 @@
+NAME                   IMAGE                      COMMAND                  SERVICE    CREATED          STATUS                            PORTS
+tradeflow-backend-1    tradeflow-backend:local    "sh ./entrypoint.sh"     backend    25 seconds ago   Up 18 seconds (healthy)           0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+tradeflow-db-1         postgis/postgis:16-3.4     "docker-entrypoint.s…"   db         25 seconds ago   Up 24 seconds (healthy)           5432/tcp
+tradeflow-frontend-1   tradeflow-frontend:local   "/docker-entrypoint.…"   frontend   25 seconds ago   Up 18 seconds                     0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+tradeflow-worker-1     tradeflow-backend:local    "python -m app.worker"   worker     25 seconds ago   Up 7 seconds (health: starting)   8000/tcp

@@ -1,0 +1,7 @@
+rebuild=0
+restart=0
+pytest=0
+migrations=0
+frontend-build=0
+vitest=0
+smoke=0

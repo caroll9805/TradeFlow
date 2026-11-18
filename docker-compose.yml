@@ -1,0 +1,72 @@
+# TradeFlow — production-like stack: PostgreSQL+PostGIS, FastAPI, collection worker, Nginx-served SPA.
+# Usage:  cp .env.example .env  &&  docker compose up --build
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tradeflow}
+      POSTGRES_USER: ${POSTGRES_USER:-tradeflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    image: tradeflow-backend:local
+    build:
+      context: ./backend
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-tradeflow}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-tradeflow}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  worker:
+    image: tradeflow-backend:local   # same image as backend (built once)
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-tradeflow}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-tradeflow}
+    command: ["python", "-m", "app.worker"]
+    healthcheck:
+      disable: true   # the worker does not serve HTTP
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    image: tradeflow-frontend:local
+    build:
+      context: ./frontend
+      args:
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org/}
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  # Test runners (not started by `up`): docker compose --profile test run --rm frontend-test
+  frontend-test:
+    profiles: ["test"]
+    image: tradeflow-frontend-build:local
+    build:
+      context: ./frontend
+      target: build
+      args:
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org/}
+    command: ["npm", "test"]
+
+volumes:
+  pgdata:

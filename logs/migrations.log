@@ -1,0 +1,8 @@
+ Container tradeflow-db-1 Running 
+ Container tradeflow-db-1 Waiting 
+ Container tradeflow-db-1 Healthy 
+ Container tradeflow-backend-run-4467411cddea Creating 
+ Container tradeflow-backend-run-4467411cddea Created 
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+0001_baseline (head)

@@ -1,0 +1,22 @@
+ Container tradeflow-frontend-test-run-e7cf20828cb4 Creating 
+ Container tradeflow-frontend-test-run-e7cf20828cb4 Created 
+
+> tradeflow-frontend@0.1.0 test
+> vitest run
+
+
+ RUN  v2.1.9 /app
+
+ ✓ src/test/lib.test.ts (5 tests) 41ms
+stderr | src/test/pages.test.tsx > shared states > renders empty and error states
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/test/pages.test.tsx (8 tests) 1136ms
+   ✓ authentication flow > validates input, logs in and redirects 305ms
+
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+   Start at  06:49:02
+   Duration  4.61s (transform 766ms, setup 552ms, collect 1.68s, tests 1.18s, environment 1.76s, prepare 696ms)
+

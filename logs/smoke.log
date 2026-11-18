@@ -1,0 +1,23 @@
+[PASS] API reachable through frontend proxy (/api/health) — {'status': 'ok', 'database': 'ok'}
+[PASS] Frontend serves the SPA (index.html) — HTTP 200
+[PASS] SPA deep link falls back to index.html — HTTP 200
+[PASS] 14 regions seeded — 14
+[PASS] 13 categories with attributes seeded — 13
+[PASS] Register buyer — HTTP 201 {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5Iiwicm9sZSI6ImJ1eWVyIiwidHlwIjoiYWNjZXNzIiwiaWF0IjoxNz
+[PASS] Authenticated /auth/me — HTTP 200
+[PASS] Buyer is forbidden from admin endpoints — HTTP 403
+[PASS] Anonymous is rejected on protected endpoints
+[PASS] Analytics overview — offers=140 simulated=140
+[PASS] Product search 'cement' — total=2
+[PASS] Offer comparison returns cheapest & best — cheapest=56 best=53 offers=6
+[PASS] Price history — status=ok points=18
+[PASS] Demo admin login (SEED_DEMO) — HTTP 200 {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0Iiwicm9sZSI6InN1cGVyX2FkbWluIiwidHlwIjoiYWNjZXNzIiwiaWF0IjoxNzk0OTg0NTQ5LCJleHAiOjE3OTQ5ODYzND
+[PASS] Admin: market data sources — 11
+[PASS] Admin: audit log — HTTP 200
+[PASS] Admin: simulated data is flagged — {'products': 42, 'suppliers': 30, 'offers': 140, 'observations': 1497, 'manufacturers': 1, 'organizations': 33, 'data_sources': 1}
+[PASS] Demo buyer login — HTTP 200
+[PASS] Demo supplier login — HTTP 200
+[PASS] Demo data login — HTTP 200
+[PASS] AI assistant answers — mode=deterministic
+
+21/21 checks passed.
